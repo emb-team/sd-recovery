@@ -185,6 +185,10 @@ this:
 may have to build one architecture at a time and combine the results
 using the `lipo' tool if you have problems.
 
+For Windows:
+	./configure CXX="x86_64-w64-mingw32-g++" CC="x86_64-w64-mingw32-gcc" CXXFLAGS="-I/usr/x86_64-w64-mingw32/sys-root/mingw/include/qt5/" PKG_CONFIG="x86_64-w64-mingw32-pkg-config" PKG_CONFIG_PATH="/usr/bin/" WINDRES="/usr/bin/x86_64-w64-mingw32-windres" --host=x64 --target=x86_64-w64-mingw32 --with-ntfs-lib=/home/evg/linux_testdisk/ntfsprogs/libntfs/.libs --with-ntfs-includes=/home/evg/linux_testdisk/ntfsprogs/include --with-ext2fs-lib=/home/evg/linux_testdisk/e2fsprogs-1.38/lib --with-ext2fs-includes=/home/evg/linux_testdisk/e2fsprogs-1.38/lib
+
+	make
 Installation Names
 ==================
 

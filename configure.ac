@@ -579,11 +579,13 @@ if test "x$with_ext2fs" != "xno"; then
         photorec_LDADD="-lcom_err $photorec_LDADD"
         qphotorec_LDADD="-lcom_err $qphotorec_LDADD"
         testdisk_LDADD="-lcom_err $testdisk_LDADD"
+        sdrecovery_LDADD="-lcom_err $sdrecovery_LDADD"
       else
 	LIBS="${com_err_lib_a} $LIBS"
         photorec_LDADD="${com_err_lib_a} $photorec_LDADD"
         qphotorec_LDADD="${com_err_lib_a} $qphotorec_LDADD"
         testdisk_LDADD="${com_err_lib_a} $testdisk_LDADD"
+        sdrecovery_LDADD="${com_err_lib_a} $sdrecovery_LDADD"
       fi
       have_com_err=yes
       ], AC_MSG_WARN(No com_err library detected))
@@ -595,11 +597,13 @@ if test "x$with_ext2fs" != "xno"; then
         photorec_LDADD="-lext2fs $photorec_LDADD"
         qphotorec_LDADD="-lext2fs $qphotorec_LDADD"
         testdisk_LDADD="-lext2fs $testdisk_LDADD"
+        sdrecovery_LDADD="-lext2fs $sdrecovery_LDADD"
       else
 	LIBS="${ext2fs_lib_a} $LIBS"
         photorec_LDADD="${ext2fs_lib_a} $photorec_LDADD"
         qphotorec_LDADD="${ext2fs_lib_a} $qphotorec_LDADD"
         testdisk_LDADD="${ext2fs_lib_a} $testdisk_LDADD"
+        sdrecovery_LDADD="${ext2fs_lib_a} $sdrecovery_LDADD"
       fi
       have_ext2fs=yes
       ],AC_MSG_WARN(No ext2fs library detected))
@@ -625,10 +629,12 @@ if test "x$with_jpeg" != "xno"; then
         photorec_LDADD="$photorec_LDADD -ljpeg"
         qphotorec_LDADD="$qphotorec_LDADD -ljpeg"
         fidentify_LDADD="$fidentify_LDADD -ljpeg"
+        sdrecovery_LDADD="-ljpeg $sdrecovery_LDADD"
       else
         photorec_LDADD="$photorec_LDADD ${jpeg_lib_a}"
         qphotorec_LDADD="$qphotorec_LDADD ${jpeg_lib_a}"
         fidentify_LDADD="$fidentify_LDADD ${jpeg_lib_a}"
+        sdrecovery_LDADD="${jpeg_lib_a} $sdrecovery_LDADD"
       fi
       have_jpeg=yes
       ],AC_MSG_WARN(No jpeg library detected))
@@ -653,10 +659,12 @@ if test "x$with_ntfs3g" != "xno"; then
       photorec_LDADD="-lntfs-3g $photorec_LDADD"
       qphotorec_LDADD="-lntfs-3g $qphotorec_LDADD"
       testdisk_LDADD="-lntfs-3g $testdisk_LDADD"
+      sdrecovery_LDADD="-lntfs-3g $sdrecovery_LDADD"
     else
       photorec_LDADD="${ntfs3g_lib_a} $photorec_LDADD"
       qphotorec_LDADD="${ntfs3g_lib_a} $qphotorec_LDADD"
       testdisk_LDADD="${ntfs3g_lib_a} $testdisk_LDADD"
+      sdrecovery_LDADD="-lntfs-3g $sdrecovery_LDADD"
     fi
     have_ntfs3g=yes
     use_ntfs=no
@@ -683,10 +691,12 @@ if test "x$with_ntfs" != "xno"; then
       photorec_LDADD="-lntfs $photorec_LDADD"
       qphotorec_LDADD="-lntfs $qphotorec_LDADD"
       testdisk_LDADD="-lntfs $testdisk_LDADD"
+      sdrecovery_LDADD="-lntfs $sdrecovery_LDADD"
     else
       photorec_LDADD="${ntfs_lib_a} $photorec_LDADD"
       qphotorec_LDADD="${ntfs_lib_a} $qphotorec_LDADD"
       testdisk_LDADD="${ntfs_lib_a} $testdisk_LDADD"
+      sdrecovery_LDADD="${ntfs_lib_a} $sdrecovery_LDADD"
     fi
     have_ntfs=yes
   ],
@@ -697,10 +707,12 @@ if test "x$with_ntfs" != "xno"; then
 	photorec_LDADD="-lntfs $photorec_LDADD"
 	qphotorec_LDADD="-lntfs $qphotorec_LDADD"
 	testdisk_LDADD="-lntfs $testdisk_LDADD"
+	sdrecovery_LDADD="-lntfs $sdrecovery_LDADD"
       else
 	photorec_LDADD="${ntfs_lib_a} $photorec_LDADD"
 	qphotorec_LDADD="${ntfs_lib_a} $qphotorec_LDADD"
 	testdisk_LDADD="${ntfs_lib_a} $testdisk_LDADD"
+	sdrecovery_LDADD="${ntfs_lib_a} $sdrecovery_LDADD"
       fi
       have_ntfs=yes
     ],AC_MSG_WARN(No ntfs library detected))
@@ -824,10 +836,12 @@ if test "x$with_ewf" != "xno"; then
     photorec_LDADD="-lewf $photorec_LDADD"
     qphotorec_LDADD="-lewf $qphotorec_LDADD"
     testdisk_LDADD="-lewf $testdisk_LDADD"
+    sdrecovery_LDADD="-lewf $sdrecovery_LDADD"
   else
     photorec_LDADD="${ewf_lib_a} $photorec_LDADD"
     qphotorec_LDADD="${ewf_lib_a} $qphotorec_LDADD"
     testdisk_LDADD="${ewf_lib_a} $testdisk_LDADD"
+    sdrecovery_LDADD="${ewf_lib_a} $sdrecovery_LDADD"
   fi
   have_ewf=yes
   OLDLIBS="$LIBS"
@@ -998,11 +1012,15 @@ then
   fi
   qphotorec_LDADD="$qphotorec_LDADD $QT5GUI_LIBS $QT5WIDGETS_LIBS"
   qphotorec_CXXFLAGS="$qphotorec_CXXFLAGS $QT5GUI_CFLAGS $QT5WIDGETS_CFLAGS"
+
+  sdrecovery_LDADD="$sdrecovery_LDADD $QT5GUI_LIBS $QT5WIDGETS_LIBS"
+  sdrecovery_CXXFLAGS="$sdrecovery_CXXFLAGS $QT5GUI_CFLAGS $QT5WIDGETS_CFLAGS"
 fi
 AM_CONDITIONAL(USEQT, test "$use_qt" = true)
 if test "$win_target" = yes;
 then
   qphotorec_LDADD="$qphotorec_LDADD -mwindows"
+  sdrecovery_LDADD="$sdrecovery_LDADD -mwindows"
 fi
 
 # e2fsprogs may be using pthread
@@ -1076,6 +1094,8 @@ AC_SUBST(photorec_LDADD)
 AC_SUBST(photorecf_LDADD)
 AC_SUBST(qphotorec_LDADD)
 AC_SUBST(qphotorec_CXXFLAGS)
+AC_SUBST(sdrecovery_LDADD)
+AC_SUBST(sdrecovery_CXXFLAGS)
 AC_CONFIG_FILES([
 	Makefile
 	icons/Makefile

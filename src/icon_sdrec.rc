@@ -1,0 +1,32 @@
+app                      ICON    DISCARDABLE     "../icons/sdrecovery.ico"
+
+1 24 "../win/sdrecovery_win.exe.manifest"
+
+1 VERSIONINFO
+FILEVERSION 0, 1, 0, 0
+PRODUCTVERSION 0, 1, 0, 0
+FILEFLAGSMASK 0x3f
+FILEOS 0x4
+FILETYPE 0x1
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName",	"SdRecovery"
+      VALUE "ProductName",	"SdRecovery"
+      VALUE "FileDescription",	"SdRecovery"
+      VALUE "InternalName",	"SdRecovery"
+      VALUE "OriginalFilename", "SdRecovery_win.exe"
+      VALUE "Comments",		"File recovery utility"
+      VALUE "FileVersion",	"0.1"
+      VALUE "ProductVersion",	"0.1"
+      VALUE "LegalCopyright",	"Copyright (C) 2024 Evgenii Zharkov"
+    END
+  END
+  BLOCK "VarFileInfo"
+      BEGIN
+      /* Once again -- same meanings -- apparently necessary */
+      VALUE "Translation", 0x0409, 0x04E4
+  END
+END

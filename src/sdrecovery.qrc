@@ -1,0 +1,14 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/res">
+<file>sdrecovery_64x64.png</file>
+<file>gnome/application-exit.png</file>
+<file>gnome/application-x-cd-image.png</file>
+<file>gnome/drive-harddisk.png</file>
+<file>gnome/folder.png</file>
+<file>gnome/go-next.png</file>
+<file>gnome/go-previous.png</file>
+<file>gnome/help-about.png</file>
+<file>gnome/donate.png</file>
+<file>gnome/document.png</file>
+</qresource>
+</RCC>

@@ -27,13 +27,15 @@ if USEICON
 ICON_TESTDISK=icon_tst.rc ../icons/testdisk.ico ../win/testdisk_win.exe.manifest
 ICON_PHOTOREC=icon_ph.rc ../icons/photorec.ico ../win/photorec_win.exe.manifest
 ICON_QPHOTOREC=icon_qph.rc ../icons/photorec.ico ../win/qphotorec_win.exe.manifest
+ICON_SDRECOVERY=icon_sdrec.rc ../icons/sdrecovery.ico ../win/sdrecovery_win.exe.manifest
 endif
 
 if USEQT
   QPHOTOREC=qphotorec
+  SDRECOVERY=sdrecovery
 endif
 
-bin_PROGRAMS		= testdisk photorec fidentify $(QPHOTOREC)
+bin_PROGRAMS		= testdisk photorec fidentify $(QPHOTOREC) $(SDRECOVERY)
 EXTRA_PROGRAMS		= photorecf fuzzerfidentify
 
 smallbase_C		= common.c crc.c ext2_common.c fat_common.c log.c misc.c setdate.c
@@ -440,6 +442,13 @@ qphotorec_SOURCES	= $(qphotorec_C_SOURCES) $(qphotorec_H_SOURCES)
 
 nodist_qphotorec_SOURCES = moc_qphotorec.cpp rcc_qphotorec.cpp rcc_qphotorec_locale.cpp
 
+sdrecovery_C_SOURCES	= $(photorec_C) $(file_C) $(base_C) $(fs_C) suspend_no.c qmainsdrec.cpp sdrecovery.cpp exfat_dir.c rfs_dir.c
+sdrecovery_H_SOURCES	= $(photorec_H) $(file_H) $(base_H) $(fs_H) $(ICON_SDRECOVERY) sdrecovery.h sdrecovery.qrc $(QT_TS)
+sdrecovery_SOURCES	= $(sdrecovery_C_SOURCES) $(sdrecovery_H_SOURCES)
+
+nodist_sdrecovery_SOURCES = moc_sdrecovery.cpp rcc_sdrecovery.cpp
+
+
 fidentify_C_SOURCES	= $(file_C) $(smallbase_C) suspend_no.c fidentify.c
 fidentify_H_SOURCES	= $(file_H) $(smallbase_H)
 fidentify_SOURCES	= $(fidentify_C_SOURCES) $(fidentify_H_SOURCES)
@@ -453,6 +462,7 @@ QT_QM=$(QT_TS:.ts=.qm)
 SECONDARY: $(QT_QM)
 
 CLEANFILES = $(nodist_qphotorec_SOURCES)
+CLEANFILES = $(nodist_sdrecovery_SOURCES)
 DISTCLEANFILES = *~ core
 
 small: $(sbin_PROGRAMS) $(bin_PROGRAMS)
@@ -516,6 +526,12 @@ rcc_qphotorec.cpp: qphotorec.qrc
 rcc_qphotorec_locale.cpp: qphotorec_locale.qrc $(QT_QM)
 	$(LN_S) $< $(@D) || exit 0
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $(@D)/$(<F) -o $@ -name qphotorec_locale
+
+moc_sdrecovery.cpp: sdrecovery.h
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $< -o $@
+
+rcc_sdrecovery.cpp: sdrecovery.qrc
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $< -o $@ -name sd-recovery
 
 Android.mk: Makefile.am
 	androgenizer \
