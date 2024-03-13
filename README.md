@@ -1,3 +1,25 @@
+**SdRecovery** utility checks the partition of your disks.
+It is very useful in recovering corrupted partitions.
+
+It works with:
+
+- DOS/Windows FAT12, FAT16 and FAT32
+- NTFS (Windows NT/2K/XP)
+- Linux Ext2 and Ext3
+- BeFS (BeOS)
+- BSD disklabel (FreeBSD/OpenBSD/NetBSD)
+- CramFS (Compressed File System)
+- HFS and HFS+, Hierarchical File System
+- JFS, IBM's Journaled File System
+- Linux Raid
+- Linux Swap (versions 1 and 2)
+- LVM and LVM2, Linux Logical Volume Manager
+- Netware NSS
+- ReiserFS 3.5, 3.6 and 4
+- Sun Solaris i386 disklabel
+- UFS and UFS2 (Sun/BSD/...)
+- XFS, SGI's Journaled File System
+
 **TestDisk** checks the partition and boot sectors of your disks.
 It is very useful in recovering lost partitions.
 
